@@ -192,6 +192,18 @@ PS.init = function( system, options ) {
 	});
 };
 
+PS.touch = function(x,y,data,options) {
+	if (isAlive) {
+		PS.statusText( "SCORE = " + score + " HIGHSCORE = " + highscore);
+		jump = true;
+		if (first) {
+			timer = PS.timerStart(1, TIMER.tick); // start game timer
+			first = false;
+		}
+	}
+	else { PS.init(); }		
+}
+
 PS.keyDown = function( key, shift, ctrl, options ) {
 	"use strict"; // Do not remove this directive!
 
